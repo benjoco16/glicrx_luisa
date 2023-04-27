@@ -1,0 +1,65 @@
+.glic-container {
+    width: 100%;
+    max-width: 960px;
+    margin: auto;
+
+}
+#glic-form {
+    border: 1px solid #000;
+}
+
+/** Popular Drug **/
+.glic-hldr {
+    text-align: center;
+}
+.drug-card {
+    display: inline-block; 
+    padding: 8px 20px;
+    margin: 10px;
+    border: 1px solid #000;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+/**  SUBSCRIPTION MODAL **/
+.glicrx-modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+.glicrx-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1rem 1.5rem;
+    width: 24rem;
+    border-radius: 0.5rem;
+}
+.glicrx-close-button {
+    float: right;
+    width: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    background-color: lightgray;
+}
+.glicrx-close-button:hover {
+    background-color: darkgray;
+}
+.glicrx-show-modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
