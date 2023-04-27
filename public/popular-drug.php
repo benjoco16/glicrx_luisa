@@ -36,7 +36,7 @@ if (curl_errno($ch)) {
         $html = '<div class="glic-hldr">';
         foreach ($data[0]['data'] as $drug) {
             $html .= '<div class="drug-card">';
-                $html .= '<div class="drug-name">' . $drug['DrugName'] . '</div>';
+                $html .= '<div class="drug-name" onclick="DrugInfo()">' . $drug['DrugName'] . '</div>';
             $html .= '</div>'; // close drug-card
         }
         $html .= '</div>'; // close glic-hldr
@@ -56,12 +56,15 @@ include ('glicrx-popup.php');
 <script>
     //create modal function
     var modal = document.querySelector(".glicrx-modal");
-    var trigger = document.querySelector(".drug-name");
     var closeButton = document.querySelector(".glicrx-close-button");
 
     function toggleModal() {
         modal.classList.toggle("glicrx-show-modal");
     }
+
+    function DrugInfo() {  
+        toggleModal();  
+    } //Open Modal
 
     function windowOnClick(event) {
         if (event.target === modal) {
@@ -69,8 +72,9 @@ include ('glicrx-popup.php');
         }
     }
 
-    trigger.addEventListener("click", toggleModal);
     closeButton.addEventListener("click", toggleModal);
     window.addEventListener("click", windowOnClick);
+
+    
 
 </script>
