@@ -6,13 +6,13 @@ function my_plugin_add_menu() {
     'GlicRX Settings',
     'GlicRX',
     'manage_options',
-    'my-plugin-settings',
-    'my_plugin_settings_page'
+    'glicrx-settings',
+    'glicrx_settings_page'
   );
 }
 
 // Display settings page
-function my_plugin_settings_page() {
+function glicrx_settings_page() {
   // Save token on form submission
   if ( isset( $_POST['glicrx_st'] ) ) {
     global $wpdb;

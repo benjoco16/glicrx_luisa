@@ -22,6 +22,5 @@ function DrugInfo(data) {
 
 } //Open Modal
 
-
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);

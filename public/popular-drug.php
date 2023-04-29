@@ -6,9 +6,10 @@ $plugin_dir_path = plugin_dir_path( __FILE__ );
 // Include the curl-helper.php file
 require_once( $plugin_dir_path . 'curl-helper.php' );
 
-$response = curlRequest('https://api.glichealth.com/pricing/v3/populardrug', 'POST', ['key' => 'value']);
+//$response = curlRequest('https://api.glichealth.com/pricing/v3/populardrug', 'POST', ['key' => 'value']);
+$response = curlRequest('https://api.glichealth.com/pricing/v3/populardrug', 'POST', [''], ['Authorization: Basic RXk2YTdicEcyeXNTU2dIaTpWbUlBa0hDU3RWMFlQMVd3', 'Content-Type: application/json']);
 
-// handle the response
+// handle the response  
 $data = json_decode($response, true);
 
 //List data and generate

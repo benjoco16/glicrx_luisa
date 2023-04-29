@@ -1,0 +1,1146 @@
+[
+    {
+        "Success": true,
+        "Code": 200,
+        "data": [
+            {
+                "drugname": "Amphetamine-Dextroamphetamine",
+                "brand_name_code": "Generic",
+                "dose": "Tablet",
+                "strength": "20MG",
+                "Quantity": "60",
+                "DisplayQuantity": "60",
+                "ndcode": "00555097302",
+                "generic": [
+                    {
+                        "sub_drug_name": "Amphetamine-Dextroamphetamine",
+                        "types": [
+                            {
+                                "dose": "Tablet",
+                                "strength": [
+                                    {
+                                        "Strength": "5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "7",
+                                                "DisplayQuantity": "7"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "42",
+                                                "DisplayQuantity": "42"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555097102",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "7.5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00527150137",
+                                                "Quantity": "64",
+                                                "DisplayQuantity": "64"
+                                            },
+                                            {
+                                                "NDCCode": "00527150137",
+                                                "Quantity": "80",
+                                                "DisplayQuantity": "80"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "88",
+                                                "DisplayQuantity": "88"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555077502",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "10MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "84",
+                                                "DisplayQuantity": "84"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "150",
+                                                "DisplayQuantity": "150"
+                                            },
+                                            {
+                                                "NDCCode": "00555097202",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "12.5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "42",
+                                                "DisplayQuantity": "42"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "68382095301",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "100",
+                                                "DisplayQuantity": "100"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555077602",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "15MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "50",
+                                                "DisplayQuantity": "50"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555077702",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "20MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "42",
+                                                "DisplayQuantity": "42"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "84",
+                                                "DisplayQuantity": "84"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "105",
+                                                "DisplayQuantity": "105"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555097302",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "30MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "42",
+                                                "DisplayQuantity": "42"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "84",
+                                                "DisplayQuantity": "84"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "150",
+                                                "DisplayQuantity": "150"
+                                            },
+                                            {
+                                                "NDCCode": "00555097402",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "comblist": [
+                            {
+                                "strengthname": "5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "7.5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "10MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "12.5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "15MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "20MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "30MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            }
+                        ],
+                        "prerset": null
+                    }
+                ],
+                "brand": [
+                    {
+                        "sub_drug_name": "Adderall",
+                        "types": [
+                            {
+                                "dose": "Tablet",
+                                "strength": [
+                                    {
+                                        "Strength": "5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "5",
+                                                "DisplayQuantity": "5"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "6",
+                                                "DisplayQuantity": "6"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "21",
+                                                "DisplayQuantity": "21"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "150",
+                                                "DisplayQuantity": "150"
+                                            },
+                                            {
+                                                "NDCCode": "57844010501",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "7.5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844011701",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844011701",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844011701",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "57844011701",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "10MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "4",
+                                                "DisplayQuantity": "4"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "5",
+                                                "DisplayQuantity": "5"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "8",
+                                                "DisplayQuantity": "8"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "12",
+                                                "DisplayQuantity": "12"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "50",
+                                                "DisplayQuantity": "50"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "56",
+                                                "DisplayQuantity": "56"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "57844011001",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "12.5MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844011201",
+                                                "Quantity": "7",
+                                                "DisplayQuantity": "7"
+                                            },
+                                            {
+                                                "NDCCode": "57844011201",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "57844011201",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844011201",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844011201",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "15MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "5",
+                                                "DisplayQuantity": "5"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "6",
+                                                "DisplayQuantity": "6"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "13",
+                                                "DisplayQuantity": "13"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "19",
+                                                "DisplayQuantity": "19"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "50",
+                                                "DisplayQuantity": "50"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "55",
+                                                "DisplayQuantity": "55"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "57844011501",
+                                                "Quantity": "150",
+                                                "DisplayQuantity": "150"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "20MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "7",
+                                                "DisplayQuantity": "7"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "8",
+                                                "DisplayQuantity": "8"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "28",
+                                                "DisplayQuantity": "28"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "62",
+                                                "DisplayQuantity": "62"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "57844012001",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "Strength": "30MG",
+                                        "Quantity": [
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "10",
+                                                "DisplayQuantity": "10"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "14",
+                                                "DisplayQuantity": "14"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "15",
+                                                "DisplayQuantity": "15"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "20",
+                                                "DisplayQuantity": "20"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "30",
+                                                "DisplayQuantity": "30"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "40",
+                                                "DisplayQuantity": "40"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "45",
+                                                "DisplayQuantity": "45"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "50",
+                                                "DisplayQuantity": "50"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "60",
+                                                "DisplayQuantity": "60"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "70",
+                                                "DisplayQuantity": "70"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "75",
+                                                "DisplayQuantity": "75"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "90",
+                                                "DisplayQuantity": "90"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "100",
+                                                "DisplayQuantity": "100"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "120",
+                                                "DisplayQuantity": "120"
+                                            },
+                                            {
+                                                "NDCCode": "57844013001",
+                                                "Quantity": "180",
+                                                "DisplayQuantity": "180"
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        "comblist": [
+                            {
+                                "strengthname": "5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "7.5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "10MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "12.5MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "15MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "20MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            },
+                            {
+                                "strengthname": "30MG",
+                                "formlist": [
+                                    "Tablet"
+                                ]
+                            }
+                        ],
+                        "prerset": null
+                    }
+                ]
+            }
+        ]
+    }
+]
