@@ -17,8 +17,9 @@ function my_plugin_settings_page() {
   if ( isset( $_POST['glicrx_st'] ) ) {
     global $wpdb;
     $table_name = $wpdb->prefix . 'glicrx_st';
-    $token = md5( sanitize_text_field( $_POST['glicrx_st'] ) );
-    $wpdb->insert( $table_name, array( 'token' => $token ) );
+    //$token = md5( sanitize_text_field( $_POST['glicrx_st'] ) );
+    $token =  $_POST['glicrx_st'];
+    $wpdb->insert( $table_name, array( 'token' => $token ));
     echo '<div class="updated"><p>Token saved successfully!</p></div>';
   }
 
