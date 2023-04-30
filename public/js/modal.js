@@ -13,9 +13,10 @@ function windowOnClick(event) {
 }
 
 //Function to include everything inside Popup
+//Use
 function DrugInfo(data) {  
     toggleModal(); 
-    //console.log(data);
+    console.log(data);
 
      // Set the text to be sent to the popup
      var textToSend = 'Hello, World!';

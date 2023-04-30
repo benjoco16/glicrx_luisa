@@ -8,8 +8,8 @@ require_once( $plugin_dir_path . 'curl-helper.php' );
 //Get Token
 $current_token = glicrx_token();
 
-$search_type = 'Adderall (Amphetamine-Dextroamphetamine)'; //Make this Dynamic After the Result
-//$search_type = isset($_POST['search_type']) ? sanitize_text_field($_POST['search_type']) : 'Adderall (Amphetamine-Dextroamphetamine)';
+//$search_type = 'Adderall (Amphetamine-Dextroamphetamine)'; //Make this Dynamic After the Result
+$search_type = isset($_POST['search_type']) ? sanitize_text_field($_POST['search_type']) : 'Adderall (Amphetamine-Dextroamphetamine)';
 
 $search_response = curlRequest('https://api.glichealth.com/pricing/v3/drugcomponents', 'POST', ['DrugName' => $search_type], ['Authorization: '.$current_token.'', 'Content-Type: application/json']);
 

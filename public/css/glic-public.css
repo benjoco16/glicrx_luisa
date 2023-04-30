@@ -47,7 +47,7 @@
   color:#6e67e3;
 }
 
-/**  SUBSCRIPTION MODAL 
+/**  SUBSCRIPTION MODAL **/
 .glicrx-modal {
     position: fixed;
     left: 0;
@@ -88,7 +88,7 @@
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
-**/
+
 
 /** Auto Complete **/
 #search-form {
@@ -169,3 +169,19 @@
     }
   }
   
+  /** Data Attribute Form Update **/
+  #data-attriform label {
+    display: block;
+    margin-top: 10px;
+  }
+  #data-attriform select,
+  #data-attriform input {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 30px;
+  }
+  #data-attriform button {
+    border-radius: 30px;
+    margin:20px auto;
+  }
