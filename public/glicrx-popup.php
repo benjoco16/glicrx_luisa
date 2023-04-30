@@ -29,17 +29,52 @@ $search_data = json_decode($search_response, true);
 <div class="glicrx-modal glicrx-show-modal">
     <div class="glicrx-modal-content">
 
-    <h1>Auto Search on type</h1>
+   <!-- <h1>Auto Search on type</h1> -->
 
         <span class="glicrx-close-button">×</span>       
         <?php
             //echo "<pre>";
-            print_r($search_data);
+            //print_r($search_data);
             //echo "</pre>";
 
             foreach ($search_data[0]['data'] as $drug) { 
-                   echo $drug['drugname'] . "<br>";
-            }
+
+                echo "<strong>Result for ; </strong>" . $drug['drugname'];            
+            ?>
+                <form action="">
+                    <div class="glic-rx-brandhldr">
+                        <label for="DrugType">Type</label>
+                        <select id="DrugType" name="DrugType">
+                            <?php  
+                                echo "<option value=''>" . $drug['generic'][0]['sub_drug_name'] . " (Generic Drug) </option>";
+                                echo "<option value=''>" . $drug['brand'][0]['sub_drug_name'] . " (Brand Drug) </option>";
+                            ?>
+                        </select>
+                    </div>
+                    <div class="glic-rx-formhldr">
+                        <label for="FormType">Form</label>
+                        <select id="FormType" name="FormType">
+                        <?php  
+                             echo "<option value=''>" . $drug['generic'][0]['types'][0]['dose'] . "</option>";
+                             echo "<option value=''>" . $drug['brand'][0]['types'][0]['dose'] . " </option>";
+                        ?>
+                        </select>
+                    </div>
+
+                    <div class="glicrx-strength-hldr">
+                        <label for="FormType">Dosage</label>
+                        <select id="FormType" name="FormType">
+                        <?php  
+                            //Change based on DrugType (Generic or Brand)
+                             echo "<option value=''>" . $drug['generic'][0]['types'][0]['strength'][0] . "</option>";
+                             echo "<option value=''>" . $drug['brand'][0]['types'][0]['strength'] . " </option>";
+                        ?>
+                        </select>
+                    </div>
+                </form>
+                   
+        <?php    
+            }//End Foreach
         ?>
         
     </div>
