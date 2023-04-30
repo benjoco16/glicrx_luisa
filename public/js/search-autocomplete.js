@@ -1,57 +1,74 @@
-// Get the search input and results container elements
-var searchInput = document.getElementById("glic-search-input");
-var resultsContainer = document.querySelector(".glic-autocomplete-results");
+(function($) {
+    $(document).ready(function() {
+      // Define variables
+        var getUrl = window.location;
+        var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+        
+        var $searchForm = $('#search-form');
+        var $searchInput = $('#search-input');
+        var $searchResults = $('#search-results');
+        var $searchSpinner = $('#search-glic-spinner');
+        var base_url = baseUrl + "/wp-admin/admin-ajax.php";
 
-// Add an event listener to the search input to handle key presses
-searchInput.addEventListener("keyup", function(event) {
-  // Clear the previous search results
-  resultsContainer.innerHTML = "";
+        // Function to show spinner
+        function showSpinner() {
+            $searchSpinner.show();
+        }
 
-  // Get the search term from the input value
-  var searchTerm = event.target.value.toLowerCase();
+        // Function to hide spinner
+        function hideSpinner() {
+            $searchSpinner.hide();
+        }
 
-  // Call the API to search for drugs matching the search term
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'https://api.glichealth.com/pricing/v3/searchdrug');
-  xhr.setRequestHeader('Authorization', 'Basic RXk2YTdicEcyeXNTU2dIaTpWbUlBa0hDU3RWMFlQMVd3');
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.onload = function() {
-    if (xhr.status === 200) {
-      // Parse the response JSON and extract the drug names
-      var drugs = JSON.parse(xhr.responseText).drugList;
-      var drugNames = drugs.map(function(drug) {
-        return drug.drugName;
-      });
+        // Function to display search results
+        function displayResults(response) {
+            $searchResults.empty();
+            if (response.length === 0) {
+                $searchResults.append('<p>No results found</p>');
+            } else {
+                $.each(response, function(index, drug) {
+                    $.each(drug.data, function(keyfirst, druglist) {
+                        var $result = $('<p>' + druglist.DrugName + '</p>');
+                        $result.on('click', function() {
+                            $searchInput.val(druglist.DrugName);
+                            $searchResults.empty();
 
-      // Filter the drug names array based on the search term
-      var matchingDrugs = drugNames.filter(function(drugName) {
-        return drugName.toLowerCase().indexOf(searchTerm) !== -1;
-      });
+							//You can use this if you like to submit the form and create popup
+                            //handleSearch(new $.Event('submit'));
+                        });
+                        $searchResults.append($result);
+                    });
+                });
+            }
+        }
 
-      // Display the matching drugs in the results container
-      matchingDrugs.forEach(function(drugName) {
-        var li = document.createElement("li");
-        li.textContent = drugName;
-        resultsContainer.appendChild(li);
-      });
-    } else {
-      // Handle API error
-      console.error(xhr.statusText);
-    }
-  };
-  xhr.onerror = function() {
-    // Handle network error
-    console.error(xhr.statusText);
-  };
-  xhr.send(JSON.stringify({ stext: searchTerm }));
-});
+        // Function to handle search
+        function handleSearch(event) {
+            event.preventDefault();
+            var searchTerm = $searchInput.val();
+            if (searchTerm.length >= 3) {
+                showSpinner();
+                $.ajax({
+                    url: base_url,
+                    type: 'POST',
+                    data: {
+                        action: 'search_drugs',
+                        stext: searchTerm
+                    },
+                    dataType: 'json',
+                    success: function(response) {
+                        hideSpinner();
+                        displayResults(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error(error);
+                    }
+                });
+            }
+        }
 
-// Add an event listener to the results container to handle clicks on the drug names
-resultsContainer.addEventListener("click", function(event) {
-  // Get the clicked drug name and set it as the search input value
-  var clickedDrug = event.target.textContent;
-  searchInput.value = clickedDrug;
-
-  // Clear the results container
-  resultsContainer.innerHTML = "";
-});
+        // Bind event listeners
+        $searchForm.on('submit', handleSearch);
+        $searchInput.on('keyup', handleSearch);
+    });
+})(jQuery);

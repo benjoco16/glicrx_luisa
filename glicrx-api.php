@@ -21,8 +21,10 @@ add_shortcode( 'GlicRx', 'GlicFunction' );
 function Glic_Assets() {
     //Public Assets
     wp_enqueue_style( 'glic-style', plugins_url( '/public/css/glic-public.css', __FILE__ ) );
+
+    wp_enqueue_script( 'jquery' );
     wp_enqueue_script( 'glic-js-modal', plugins_url( '/public/js/modal.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-    wp_enqueue_script( 'glic-js-autocomplete', plugins_url( '/public/js/search-auto-complete.js', __FILE__ ), '', '1.0.0', true );
+    wp_enqueue_script( 'glic-js-autocomplete', plugins_url( '/public/js/search-autocomplete.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
 }   
 add_action( 'wp_enqueue_scripts', 'Glic_Assets' );
 
@@ -35,5 +37,29 @@ register_deactivation_hook( __FILE__, 'glic_deactivate' );
 
 //Admin Settings
 require_once( plugin_dir_path( __FILE__ ) . 'admin/glicrx-admin-navigation.php' );
+
+
+//For Ajax auto complete function
+add_action('wp_ajax_nopriv_search_drugs', 'search_drugs');
+add_action('wp_ajax_search_drugs', 'search_drugs');
+
+function search_drugs() {
+  $url = 'https://api.glichealth.com/pricing/v3/searchdrug';
+  $data = array('stext' => $_POST['stext']);
+
+  $options = array(
+    'http' => array(
+      'header' => "Content-Type: application/x-www-form-urlencoded\r\n" .
+                  "Authorization: Basic RXk2YTdicEcyeXNTU2dIaTpWbUlBa0hDU3RWMFlQMVd3\r\n",
+      'method' => 'POST',
+      'content' => http_build_query($data),
+    ),
+  );
+
+  $context = stream_context_create($options);
+  $response = file_get_contents($url, false, $context);
+
+  wp_send_json(json_decode($response));
+}
 
 ?>

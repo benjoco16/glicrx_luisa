@@ -11,21 +11,21 @@
     */
 
     function curlRequest($url, $method, $data = [], $headers = [], $timeout = 10, $connectTimeout = 0) {
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $connectTimeout);
-    if (!empty($data)) {
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $connectTimeout);
+        if (!empty($data)) {
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        }
+        if (!empty($headers)) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        }
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
     }
-    if (!empty($headers)) {
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-    }
-    $response = curl_exec($ch);
-    curl_close($ch);
-    return $response;
-}
 
 
 //Query DB tp get value in custom table
@@ -37,6 +37,5 @@ function glicrx_token() {
 }
 
 
-    //Test the result
     
 ?>
