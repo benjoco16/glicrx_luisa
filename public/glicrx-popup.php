@@ -13,9 +13,9 @@ $current_token = glicrx_token();
 //USED THIS FOR AUTO SUGGESTION
 //$search_response = curlRequest('https://api.glichealth.com/pricing/v3/searchdrug', 'POST', ['stext' => 'adde'], [], 10, 0);
 
-$search_type = 'Anti';
+$search_type = 'Adderall (Amphetamine-Dextroamphetamine)';
 
-$search_response = curlRequest('https://api.glichealth.com/pricing/v3/searchdrug', 'POST', ['stext' => $search_type], ['Authorization: '.$current_token.'', 'Content-Type: application/json']);
+$search_response = curlRequest('https://api.glichealth.com/pricing/v3/drugcomponents', 'POST', ['DrugName' => $search_type], ['Authorization: '.$current_token.'', 'Content-Type: application/json']);
 
 /*
     Next Task* : Find a way to secure the Token Auth by using
@@ -33,12 +33,12 @@ $search_data = json_decode($search_response, true);
 
         <span class="glicrx-close-button">×</span>       
         <?php
-            echo "<pre>";
-            //print_r($search_data);
-            echo "</pre>";
+            //echo "<pre>";
+            print_r($search_data);
+            //echo "</pre>";
 
             foreach ($search_data[0]['data'] as $drug) { 
-                   echo $drug['DrugName'] . "<br>"; 
+                   echo $drug['drugname'] . "<br>";
             }
         ?>
         

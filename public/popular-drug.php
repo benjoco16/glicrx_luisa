@@ -16,10 +16,8 @@ $data = json_decode($response, true);
 $html = '<div class="glic-container">';
     $html = '<div class="glic-hldr">';
     foreach ($data[0]['data'] as $drug) {
-        $html .= '<div class="drug-card" onclick="DrugInfo(\''.$drug['DrugName'].'\')">';
-            
+        $html .= '<div class="drug-card" onclick="DrugInfo(\''.$drug['DrugName'].'\')">';         
             $html .= '<div class="drug-name">'.$drug['DrugName'].'</div>';
-            
         $html .= '</div>'; // close drug-card
     }
     $html .= '</div>'; // close glic-hldr
@@ -28,6 +26,6 @@ $html .= '</div>'; // close glic-container
 echo $html;
 
 //include modal
-include ('glicrx-popup.php');
+//include ('glicrx-popup.php');
 ?>
 

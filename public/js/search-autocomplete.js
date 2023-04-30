@@ -28,14 +28,25 @@
             } else {
                 $.each(response, function(index, drug) {
                     $.each(drug.data, function(keyfirst, druglist) {
-                        var $result = $('<p>' + druglist.DrugName + '</p>');
+
+                        //console.log(druglist);
+                        $searchResults.show();
+
+                        if (druglist.DrugName) {
+                            var $result = $('<p>' + druglist.DrugName + '</p>');
+                        } else {
+                            var $result = $('<p>No results found</p>');
+                        }
+                        
                         $result.on('click', function() {
                             $searchInput.val(druglist.DrugName);
                             $searchResults.empty();
+                            $searchResults.hide();
 
 							//You can use this if you like to submit the form and create popup
                             //handleSearch(new $.Event('submit'));
                         });
+
                         $searchResults.append($result);
                     });
                 });
@@ -46,8 +57,11 @@
         function handleSearch(event) {
             event.preventDefault();
             var searchTerm = $searchInput.val();
+
             if (searchTerm.length >= 3) {
+                //console.log(searchTerm);
                 showSpinner();
+                $searchResults.show();
                 $.ajax({
                     url: base_url,
                     type: 'POST',
@@ -58,7 +72,8 @@
                     dataType: 'json',
                     success: function(response) {
                         hideSpinner();
-                        displayResults(response);
+                        displayResults(response);    
+                       
                     },
                     error: function(xhr, status, error) {
                         console.error(error);
