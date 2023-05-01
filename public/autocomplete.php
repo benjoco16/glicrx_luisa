@@ -1,5 +1,12 @@
 <?php
 function search_drugs() {
+  $plugin_dir_path = plugin_dir_path( __FILE__ );
+  // Include the curl-helper.php file
+  require_once( $plugin_dir_path . 'curl-helper.php' );
+
+  //Get Token
+  $current_token = glicrx_token();
+
   $url = 'https://api.glichealth.com/pricing/v3/searchdrug';
   $data = array('stext' => $_POST['stext']);
 

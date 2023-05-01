@@ -56,4 +56,11 @@ add_action('wp_ajax_search_drugs', 'search_drugs');
 
 require_once( plugin_dir_path( __FILE__ ) . 'public/autocomplete.php' );
 
+
+//For Popup Drug with ajax query function
+add_action( 'wp_ajax_nopriv_drug_components', 'handle_drug_components' );
+add_action( 'wp_ajax_drug_components', 'handle_drug_components' );
+
+require_once( plugin_dir_path( __FILE__ ) . 'public/drug-components.php' );
+
 ?>
