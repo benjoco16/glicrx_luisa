@@ -35,10 +35,11 @@ window.addEventListener("click", windowOnClick);
       // Define variables
         var getUrl = window.location;
         var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-        var $DrugID = $('.drug-card');
+        var $DrugID = $('.drug-name');
         var $DrugResults = $('#glicrx-drug-results');
         var $searchSpinner = $('#search-glic-spinner');
         var base_url = baseUrl + "/wp-admin/admin-ajax.php";
+        const $DrugType = $('#DrugType');
 
         // Function to show spinner
         function showSpinner() {
@@ -53,11 +54,11 @@ window.addEventListener("click", windowOnClick);
         // Function to display search results
         function displayResults(response) {
             $DrugResults.empty(); 
-
+            $DrugType.empty(); //Empty Type Select Option
             if (response.length === 0) {
                 $DrugResults.append('<p>No results found</p>');
             } else {
-                //console.log(response);
+                console.log(response);
                 $.each(response.data, function(keyfirst, druglist) {  
                     $.each(druglist.data, function(keysecond, drname) {  
                         //console.log(drname.ndcode);
@@ -65,13 +66,46 @@ window.addEventListener("click", windowOnClick);
                 });
 
                 //Try to use this for cleaner Codes because you have huge arrays
-                const ndCodes = response.data.flatMap(druglist => druglist.data.map(drname => drname.ndcode));
-                console.log(ndCodes);
+                //Get all default and set it in Dropdown
+                const drName = response.data.flatMap(druglist => druglist.data.map(drname => drname.drugname));
+               // const qty = response.data.flatMap(druglist => druglist.data.map(drname => drname.Quantity));
+                //const strength = response.data.flatMap(druglist => druglist.data.map(drname => drname.strength));
+                //const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose));
+                //const brand_name_code = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand_name_code));
+
+                const drug_brand_arr = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand));
+                const drug_sub_brand_name = drug_brand_arr[0]; //Get data->brand array
+
                 
+                const drug_generic_arr = response.data.flatMap(druglist => druglist.data.map(drname => drname.generic));
+                
+                //create 3 codition for Brand, if walang laman, if maraming array or kung isa lang gamiting yung nandito sa baba
+                
+                if (drug_sub_brand_name.length === 0) { 
+                    console.log("Empty Sub Brand Name");
+                } else { 
+                    drug_sub_brand_name.forEach(sub_brand => {
+                        $DrugType.append(`<option value="${sub_brand.sub_drug_name}">${sub_brand.sub_drug_name} (Brand Drug)</option>`);
+                        //console.log(sub_brand.sub_drug_name);
+                        
+                        console.log(sub_brand.types);
+                        console.log(sub_brand.comblist);
+                        console.log(sub_brand.prerset);
+                    });
+                }
+
+                
+                /*drug_brand_arr[0][0].sub_drug_name.forEach(option => {
+                    $DrugType.append(`<option value="${JSON.stringify(option)}">${JSON.stringify(option)}</option>`);
+                });*/
+                
+                var $result = $('<option value="' + drName + '">Drug Name:' + drName + '</option>');
+                $DrugResults.append($result);
+
+
+                //START 
 
                 $.each(response, function(index, drug) {
-                    
-      
                     /*
                     $.each(drug.data, function(keyfirst, druglist) {
 
@@ -95,7 +129,7 @@ window.addEventListener("click", windowOnClick);
         // Function to handle search
         function handleSearch(event) {
             var $target = $(event.target);
-
+            
             //event.preventDefault();
             //var DrugTerm = $target.text();
             var DrugTerm = $target.data('info');
@@ -114,7 +148,7 @@ window.addEventListener("click", windowOnClick);
                 dataType: 'json',
                 success: function(response) {
                     hideSpinner();
-                    displayResults(response);    
+                    displayResults(response);
                 },
                 error: function(xhr, status, error) {
                     console.error(error);
@@ -126,9 +160,7 @@ window.addEventListener("click", windowOnClick);
         // Bind event listeners
         //$DrugID.on('click', handleSearch);
 
-        $.each($DrugID, function() {
-            $(this).on('click', handleSearch);
-        });
+        $.each($DrugID, function() { $(this).on('click', handleSearch); });
     });
 })(jQuery);
 
