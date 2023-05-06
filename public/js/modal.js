@@ -39,7 +39,26 @@ window.addEventListener("click", windowOnClick);
         var $DrugResults = $('#glicrx-drug-results');
         var $searchSpinner = $('#search-glic-spinner');
         var base_url = baseUrl + "/wp-admin/admin-ajax.php";
-        const $DrugType = $('#DrugType');
+        var $DrugType = $('#DrugType');
+
+        function getDrugComponents(DrugTerm) {
+            $.ajax({
+                url: base_url,
+                type: 'POST',
+                data: {
+                    action: 'drug_components',
+                    DrugName: DrugTerm
+                },
+                dataType: 'json',
+                success: function(response) {
+                    hideSpinner();
+                    displayResults(response);
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+        }
 
         // Function to show spinner
         function showSpinner() {
@@ -78,9 +97,10 @@ window.addEventListener("click", windowOnClick);
 
                 
                 const drug_generic_arr = response.data.flatMap(druglist => druglist.data.map(drname => drname.generic));
+                const drug_sub_generic_name = drug_generic_arr[0]; //Get data->brand array
                 
                 //create 3 codition for Brand, if walang laman, if maraming array or kung isa lang gamiting yung nandito sa baba
-                
+                //Condition for Brand Name
                 if (drug_sub_brand_name.length === 0) { 
                     console.log("Empty Sub Brand Name");
                 } else { 
@@ -88,16 +108,27 @@ window.addEventListener("click", windowOnClick);
                         $DrugType.append(`<option value="${sub_brand.sub_drug_name}">${sub_brand.sub_drug_name} (Brand Drug)</option>`);
                         //console.log(sub_brand.sub_drug_name);
                         
-                        console.log(sub_brand.types);
-                        console.log(sub_brand.comblist);
-                        console.log(sub_brand.prerset);
+                        //console.log(sub_brand.types);
+                        //console.log(sub_brand.comblist);
+                        //console.log(sub_brand.prerset);
                     });
+                    
                 }
 
-                
-                /*drug_brand_arr[0][0].sub_drug_name.forEach(option => {
-                    $DrugType.append(`<option value="${JSON.stringify(option)}">${JSON.stringify(option)}</option>`);
-                });*/
+                //Condition for Generic Name
+                if (drug_sub_generic_name.length === 0) { 
+                    console.log("Empty Generic Sub Brand Name");
+                } else { 
+                    drug_sub_generic_name.forEach(sub_generic => {
+                        $DrugType.append(`<option value="${sub_generic.sub_drug_name}">${sub_generic.sub_drug_name} (Generic Drug)</option>`);
+                        
+                        //console.log(sub_brand.sub_drug_name);
+                        
+                        //console.log(sub_generic.types);
+                        //console.log(sub_generic.comblist);
+                        //console.log(sub_generic.prerset);
+                    });
+                }
                 
                 var $result = $('<option value="' + drName + '">Drug Name:' + drName + '</option>');
                 $DrugResults.append($result);
@@ -135,32 +166,32 @@ window.addEventListener("click", windowOnClick);
             var DrugTerm = $target.data('info');
             
             console.log(DrugTerm);
-            //showSpinner();
+            showSpinner();
             $DrugResults.show();
-           
-            $.ajax({
-                url: base_url,
-                type: 'POST',
-                data: {
-                    action: 'drug_components',
-                    DrugName: DrugTerm
-                },
-                dataType: 'json',
-                success: function(response) {
-                    hideSpinner();
-                    displayResults(response);
-                },
-                error: function(xhr, status, error) {
-                    console.error(error);
-                }
-            });
 
+            getDrugComponents(DrugTerm);
+        }
+
+         // Function to handle search
+        function handleDrugType() { 
+            var dttype = $('#DrugType').val();
+            alert (dttype);
+
+            //Get ALl Dosage/Strength
+
+            //getDrugComponents();
         }
 
         // Bind event listeners
         //$DrugID.on('click', handleSearch);
 
-        $.each($DrugID, function() { $(this).on('click', handleSearch); });
+        $.each($DrugID, function() { 
+            $(this).on('click', handleSearch); 
+        });
+        $.each($DrugType, function() { 
+            $(this).on('change', handleDrugType); 
+        });
+        
     });
 })(jQuery);
 

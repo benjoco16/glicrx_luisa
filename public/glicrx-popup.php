@@ -5,14 +5,14 @@
     </div>
 </div>
 
-<form action="" id="data-attriform">
+    <form action="" id="data-attriform">
                     <!-- Drug Type -->
                     <div class="glic-rx-brandhldr">
                         <label for="DrugType">Type</label>
                         <select id="DrugType" name="DrugType">
                             <?php  
                                 //echo "<option value=''>" . $drug['generic'][0]['sub_drug_name'] . " (Generic Drug) </option>";
-                                   ?>
+                            ?>
                         </select>
                     </div>
 
