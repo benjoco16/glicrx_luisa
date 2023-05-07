@@ -21,7 +21,7 @@
         }
 
         // Function to display search results
-        function displayResults(response) {
+        function displaySearchResults(response) {
             $searchResults.empty();
             if (response.length === 0) {
                 $searchResults.append('<p>No results found</p>');
@@ -39,10 +39,13 @@
                         }
                         
                         $result.on('click', function() {
+                            console.log(druglist.DrugName);
                             $searchInput.val(druglist.DrugName);
                             $searchResults.empty();
                             $searchResults.hide();
 
+                            getDrugComponents(druglist.DrugName);
+                            
 							//You can use this if you like to submit the form and create popup
                             //handleSearch(new $.Event('submit'));
                         });
@@ -53,6 +56,7 @@
             }
         }
 
+
         // Function to handle search
         function handleSearch(event) {
             event.preventDefault();
@@ -62,6 +66,7 @@
                 //console.log(searchTerm);
                 showSpinner();
                 $searchResults.show();
+                
                 $.ajax({
                     url: base_url,
                     type: 'POST',
@@ -72,13 +77,13 @@
                     dataType: 'json',
                     success: function(response) {
                         hideSpinner();
-                        displayResults(response);    
-                       
+                        displaySearchResults(response);    
                     },
                     error: function(xhr, status, error) {
                         console.error(error);
                     }
                 });
+                
             }
         }
 

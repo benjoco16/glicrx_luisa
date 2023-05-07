@@ -2,6 +2,7 @@
   //For Popup Drug with ajax query function
   add_action( 'wp_ajax_nopriv_drug_components', 'handle_drug_components' );
   add_action( 'wp_ajax_drug_components', 'handle_drug_components' );
+
   function handle_drug_components() {
     // Get the absolute path to the plugin directory
     $plugin_dir_path = plugin_dir_path( __FILE__ );
@@ -18,6 +19,7 @@
 
       // handle the response
       $drug_data = json_decode( $search_response, true );
+      
       wp_send_json_success( $drug_data );
       wp_die();
   }

@@ -28,5 +28,4 @@ function search_drugs() {
   wp_send_json(json_decode($response));
 }
 
-
 ?>
