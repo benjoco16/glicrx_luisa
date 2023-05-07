@@ -1,4 +1,7 @@
 <?php
+add_action('wp_ajax_nopriv_search_drugs', 'search_drugs');
+add_action('wp_ajax_search_drugs', 'search_drugs');
+
 function search_drugs() {
   $plugin_dir_path = plugin_dir_path( __FILE__ );
   // Include the curl-helper.php file
