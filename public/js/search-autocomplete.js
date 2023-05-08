@@ -5,9 +5,8 @@
         var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
         
         var $searchForm = $('#search-form');
-        var $searchInput = $('#search-input');
-        var $searchResults = $('#search-results');
         var $searchSpinner = $('#search-glic-spinner');
+        var $searchInput = $('#search-input');
         var base_url = baseUrl + "/wp-admin/admin-ajax.php";
 
         // Function to show spinner
@@ -45,7 +44,7 @@
                             $searchResults.hide();
 
                             getDrugComponents(druglist.DrugName);
-                            
+
 							//You can use this if you like to submit the form and create popup
                             //handleSearch(new $.Event('submit'));
                         });
@@ -62,29 +61,7 @@
             event.preventDefault();
             var searchTerm = $searchInput.val();
 
-            if (searchTerm.length >= 3) {
-                //console.log(searchTerm);
-                showSpinner();
-                $searchResults.show();
-                
-                $.ajax({
-                    url: base_url,
-                    type: 'POST',
-                    data: {
-                        action: 'search_drugs',
-                        stext: searchTerm
-                    },
-                    dataType: 'json',
-                    success: function(response) {
-                        hideSpinner();
-                        displaySearchResults(response);    
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
-                });
-                
-            }
+            AutoComplete(searchTerm);
         }
 
         // Bind event listeners
