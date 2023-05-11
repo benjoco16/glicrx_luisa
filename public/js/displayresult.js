@@ -19,10 +19,10 @@
             console.log(response);
 
              //GET brandnamecode set it to variable and use it in different conditions
-             brandres = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand_name_code)); //Response Generic or Brand
-             brandres = brandres.map(str => str.toLowerCase());
+             brandress = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand_name_code)); //Response Generic or Brand
+             brandres = brandress.map(str => str.toLowerCase());
              const drug_generic_name = String(brandres[0]); 
-             
+             brand_var = null;
  
              if (drug_generic_name === 'generic') {
                  var brand_vars = response.data.flatMap(druglist => druglist.data.map(drname => drname.generic));
@@ -42,28 +42,21 @@
             if (!brand_var) {   //If empty
                 console.log("Need to display : No details available for this drug.");
             } else { 
-                /*
-                brand_var.forEach(sub_brand => {
-                    console.log(sub_brand.types);
-                    
-                    //AVOID Duplication
-                    const options = new Set();
-                    sub_brand.types.forEach(subbb => {
-                        options.add(subbb.dose);
-                    });
-                    const uniqueTypeOptions = [...options];
-
-                    uniqueTypeOptions.forEach(option => {
-                        DrugFormType.append(`<option value="${option}">${option}</option>`);
-                    });
-
-                });*/
-
+                //FORM Type
                 brand_var.forEach(sub_brand => {
                     const uniqueTypes = new Set(sub_brand.types.map(type => type.dose));
                     uniqueTypes.forEach(type => {
-                        if(!DrugFormType.find(`option[val ue="${type}"]`).length) {
+                        if(!DrugFormType.find(`option[value="${type}"]`).length) {
                             DrugFormType.append(`<option value="${type}">${type}</option>`);
+                        }
+                    });
+                });
+                //Dosage Strength
+                brand_var.forEach(sub_dos => {
+                    const uniquecomblist = new Set(sub_dos.comblist.map(comblist => comblist.strengthname));
+                    uniquecomblist.forEach(comblist => {
+                        if(!DrugDosage.find(`option[value="${comblist}"]`).length) {
+                            DrugDosage.append(`<option value="${comblist}">${comblist}</option>`);
                         }
                     });
                 });
@@ -71,7 +64,7 @@
 
             //Get Static Dosage Strength
             const strength = response.data.flatMap(druglist => druglist.data.map(drname => drname.strength));
-            DrugDosage.append(`<option value="${strength}">${strength}</option>`);
+            //DrugDosage.append(`<option value="${strength}">${strength}</option>`);
 
             //Get Quantity
             const DisplayQuantity = response.data.flatMap(druglist => druglist.data.map(drname => drname.DisplayQuantity));
@@ -111,6 +104,7 @@
             //Set Active Value
             DrugType.val(drName);
             DrugFormType.val(dose);
+            DrugDosage.val(strength);
 
             var $result = jQuery('<option value="' + drName + '">Drug Name:' + drName + '</option>');
             DrugResults.append($result);

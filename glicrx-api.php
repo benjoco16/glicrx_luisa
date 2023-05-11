@@ -20,7 +20,7 @@ add_shortcode( 'GlicRx', 'GlicFunction' );
 //Shortcode for Search Result Page
 function glicResultPage( $atts ) {
     ob_start();
-        include( dirname ( __FILE__ ) . '/public/glicrx-popup.php' );
+        include( dirname ( __FILE__ ) . '/public/glic-result-page.php' );
     return ob_get_clean();
 }
 add_shortcode( 'GlicResultPage', 'glicResultPage' );
@@ -58,5 +58,10 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/autocomplete.php' );
 
 //For Popup Drug with ajax query function
 require_once( plugin_dir_path( __FILE__ ) . 'public/drug-components.php' );
+
+//For Popup Drug with ajax query function
+//require_once( plugin_dir_path( __FILE__ ) . 'public/inc/submited-form.php' );
+
+
 
 ?>
