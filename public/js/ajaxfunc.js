@@ -5,10 +5,9 @@ var $searchSpinner = jQuery('#search-glic-spinner');
 var base_url = baseUrl + "/wp-admin/admin-ajax.php";
 
 // Function to show spinner
-function showSpinner() {  $searchSpinner.show();  }
+function showSpinner() { $searchSpinner.show(); }
 // Function to hide spinner
-function hideSpinner() {  $searchSpinner.hide();  }
-
+function hideSpinner() { $searchSpinner.hide(); }
 
 function getDrugComponents(DrugTerm) {
     showSpinner();
@@ -22,7 +21,7 @@ function getDrugComponents(DrugTerm) {
         dataType: 'json',
         success: function(response) {
             hideSpinner();
-            displayResults(response);
+            displayResults(response); //display-result.js
         },
         error: function(xhr, status, error) {
             console.error(error);
@@ -30,9 +29,8 @@ function getDrugComponents(DrugTerm) {
     });
 }
 
-
 //Autocomplete Function
-function AutoComplete(searchTerm) { 
+function AutoComplete(searchTerm) {
     var $searchResults = jQuery('#search-results');
     if (searchTerm.length >= 3) {
         //console.log(searchTerm);

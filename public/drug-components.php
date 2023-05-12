@@ -11,7 +11,8 @@
 
     //Get Token
     $current_token = glicrx_token();
-    
+
+      //Came from Ajaxfunc.js getDrugComponents data->Drugname
       $drug_name = isset( $_POST['DrugName'] ) ? sanitize_text_field( $_POST['DrugName'] ) : '';
 
       // Make the API call using cURL

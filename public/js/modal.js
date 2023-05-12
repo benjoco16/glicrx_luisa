@@ -41,26 +41,27 @@ window.addEventListener("click", windowOnClick);
         var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
         
         var base_url = baseUrl + "/wp-admin/admin-ajax.php";
-
+        var DrugTerm; // GLobal Drugterm to use in different function
+        
         // Function to handle search
         function HandleFormResult(event) {
-           
             var $target = $(event.target);
-            
             //event.preventDefault();
             //var DrugTerm = $target.text();
             var DrugTerm = $target.data('info');
             
+            //Insert the Caller name right away in the input to use in the other page
+            $("input#caller_name").val(DrugTerm);
+
             console.log(DrugTerm);
             showSpinner();
             $DrugResults.show();
             
-            getDrugComponents(DrugTerm);
+            getDrugComponents(DrugTerm); //use this to foreach data from drugterm
         }
         
          // Function to handle Drug Type
         function handleDrugType(response) { 
-           
             var dttype = $('#DrugType').val();
             var $FormType =  $('#FormType').val();
             alert (response.data);
@@ -72,24 +73,32 @@ window.addEventListener("click", windowOnClick);
                 $FormType.append(`<option>No Data</option>`);
             } else { 
                 const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
-                cobsole.log(dose);
+                console.log(dose);
             }
-
             //getDrugComponents();
+        }
+      
+        //On submit control the secondpage
+        function HandleResultPage(event) {
+
+            console.log(event);
+            //onsubmit need mun redirect before irun yung function
+
+            //Get DrugTerm from HandleFormResult() function
+            //getDrugComponents(DrugTerm);
         }
 
         // Bind event listeners
         //$DrugID.on('click', HandleFormResult);
 
         $.each($DrugID, function() { 
-            $(this).on('click', HandleFormResult); 
-            
+            $(this).on('click', HandleFormResult); //click to display data in form
         });
+
         $.each(DrugType, function() { 
             $(this).on('change', handleDrugType); 
         });
-        
+
+        $('form#data-attriform').on('submit', HandleResultPage);
     });
 })(jQuery);
-
-
