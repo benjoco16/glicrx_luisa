@@ -8,10 +8,11 @@ function displayResults(response) {
     DrugFormType = jQuery('#FormType'),
     DrugDosage= jQuery('#Dosage'),
     DrugDisplayQuantity= jQuery('#qty'),
+    DrugNdc= jQuery('#ndcode'),
     DrugResults = jQuery();
 
     //Clear All Form Fields
-    DrugResults.add(DrugType).add(DrugFormType).add(DrugDosage).add(DrugDisplayQuantity).empty();
+    DrugResults.add(DrugType).add(DrugFormType).add(DrugDosage).add(DrugDisplayQuantity).add(DrugNdc).empty();
 
     if (response.length === 0 && response.data.length == 1) {
         DrugResults.append('<p>No results found</p>');
@@ -79,6 +80,9 @@ function displayResults(response) {
         
         const drug_generic_arr = response.data.flatMap(druglist => druglist.data.map(drname => drname.generic));
         const drug_sub_generic_name = drug_generic_arr[0]; //Get data->brand array
+
+        //Pull NDC Data
+        const ndcode = response.data.flatMap(druglist => druglist.data.map(drname => drname.ndcode));
         
         //Condition for Brand Name
         if (!drug_sub_brand_name) {   //If empty
@@ -106,6 +110,8 @@ function displayResults(response) {
         DrugType.val(drName);
         DrugFormType.val(dose);
         DrugDosage.val(strength);
+        DrugNdc.val(ndcode);
+        
 
         var $result = jQuery('<option value="' + drName + '">Drug Name:' + drName + '</option>');
         DrugResults.append($result);

@@ -11,6 +11,11 @@
         <label for="Caller Name">Caller Name</label>
         <input type="text" id="caller_name" name="caller_name" placeholder="Caller Name">
     </div>
+    <div>
+        <label for="NDCODE">NDCODE</label>
+        <input type="text" id="ndcode" name="ndcode" placeholder="ndcode">
+    </div>
+
     <!-- Drug Type -->
     <div class="glic-rx-brandhldr">
         <label for="DrugType">Type</label>

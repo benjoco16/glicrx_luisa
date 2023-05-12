@@ -5,6 +5,7 @@ jQuery(document).ready(function($) {
         alert("Search Result Page : " + callernname);
         // call the getDrugComponents function with the dttype value
         getDrugComponents(callernname);
+        displayPharmacy();
     },100);
     
 });

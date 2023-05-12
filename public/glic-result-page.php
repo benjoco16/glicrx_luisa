@@ -3,6 +3,7 @@
     echo "Field ".htmlspecialchars($key)." is ".htmlspecialchars($value)."<br>";
   }
   $callername = isset($_POST['caller_name']) ? $_POST['caller_name'] : '';
+  $ndcode = isset($_POST['ndcode']) ? $_POST['ndcode'] : '';
   $dtype = isset($_POST['DrugType']) ? $_POST['DrugType'] : '';
   $formtype = isset($_POST['FormType']) ? $_POST['FormType'] : '';
   $dosagetype = isset($_POST['Dosage']) ? $_POST['Dosage'] : '';
@@ -19,5 +20,5 @@
     echo $qtytype;
     echo $ziptype;
   }
-  include('glic-update-drug.php');
+  include('resultpage/glic-update-drug.php');
 ?>
