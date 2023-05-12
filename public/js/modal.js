@@ -78,16 +78,6 @@ window.addEventListener("click", windowOnClick);
             //getDrugComponents();
         }
       
-        //On submit control the secondpage
-        function HandleResultPage(event) {
-
-            console.log(event);
-            //onsubmit need mun redirect before irun yung function
-
-            //Get DrugTerm from HandleFormResult() function
-            //getDrugComponents(DrugTerm);
-        }
-
         // Bind event listeners
         //$DrugID.on('click', HandleFormResult);
 

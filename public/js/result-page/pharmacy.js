@@ -1,3 +1,4 @@
-function displayPharmacy(response) {
-    alert(2);
+function displayPharmacy() {
+    alert(response);
+    alert("Hello from Pharmacy JS");
 }

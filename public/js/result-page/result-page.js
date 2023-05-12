@@ -2,10 +2,12 @@ jQuery(document).ready(function($) {
     setTimeout(function(){
         // get the value of the DrugType select element
         var callernname = $('#drug_result_input').val(); //WALANG BINABATO
-        alert("Search Result Page : " + callernname);
         // call the getDrugComponents function with the dttype value
         getDrugComponents(callernname);
-        displayPharmacy();
+
+        //ndc, quantity, zip parameter and pass to ajaxfunc.js
+        getPharmaxy('68180072103', '30', '18520');
+
     },100);
     
 });

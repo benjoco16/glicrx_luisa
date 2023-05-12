@@ -29,6 +29,28 @@ function getDrugComponents(DrugTerm) {
     });
 }
 
+//Pharmacy Ajax
+function getPharmaxy(NDC, Quant, ZipCode) {
+    jQuery.ajax({
+        url: base_url,
+        type: 'POST',
+        data: {
+            //Left is from form $_POST and Right is to pass to ajax
+            ndcode: NDC,
+            qty: Quant,
+            getzipcode: ZipCode
+        },
+        dataType: 'json',
+        success: function(response) {
+            hideSpinner();
+            displayPharmacy(response); //display-result.js
+        },
+        error: function(xhr, status, error) {
+            console.error(error);
+        }
+    });
+}
+
 //Autocomplete Function
 function AutoComplete(searchTerm) {
     var $searchResults = jQuery('#search-results');
