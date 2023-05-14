@@ -17,8 +17,8 @@ function displayResults(response) {
     if (response.length === 0 && response.data.length == 1) {
         DrugResults.append('<p>No results found</p>');
     } else {
-        console.log("response text is here");
-        console.log(response);
+        //console.log("response text is here");
+        //console.log(response);
 
         //GET brandnamecode set it to variable and use it in different conditions
         brandress = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand_name_code)); //Response Generic or Brand

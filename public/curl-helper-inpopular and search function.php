@@ -26,27 +26,13 @@
         curl_close($ch);
         return $response;
     }
-    
-    function curlPostRequest($url, $data = [], $headers = [], $timeout = 10, $connectTimeout = 0) {
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $connectTimeout);
-        if (!empty($headers)) {
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        }
-        $response = curl_exec($ch);
-        curl_close($ch);
-        return $response;
-    }
-    
+
+
+    //Query DB tp get value in custom table
     function glicrx_token() {
         global $wpdb;
         $table_name = $wpdb->prefix . 'glicrx_st';
         $current_token = $wpdb->get_var( "SELECT token FROM $table_name ORDER BY id DESC LIMIT 1" );
         return $current_token;
     }
-    
 ?>

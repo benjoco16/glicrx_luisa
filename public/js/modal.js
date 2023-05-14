@@ -57,7 +57,7 @@ window.addEventListener("click", windowOnClick);
             showSpinner();
             $DrugResults.show();
             
-            getDrugComponents(DrugTerm); //use this to foreach data from drugterm
+            getDrugComponents(DrugTerm); //use this to call the ajaxfunc.js getdrug
         }
         
          // Function to handle Drug Type
@@ -89,6 +89,7 @@ window.addEventListener("click", windowOnClick);
             $(this).on('change', handleDrugType); 
         });
 
-        $('form#data-attriform').on('submit', HandleResultPage);
+        //Disable because of unused function
+        //$('form#data-attriform').on('submit', HandleResultPage);
     });
 })(jQuery);

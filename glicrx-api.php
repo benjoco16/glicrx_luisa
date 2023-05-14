@@ -29,14 +29,16 @@ add_shortcode( 'GlicResultPage', 'glicResultPage' );
 function Glic_Assets() {
     //Public Assets
     wp_enqueue_style('glic-style', plugins_url('/public/css/glic-public.css', __FILE__ ));
+    wp_enqueue_style('glic-public-responsive', plugins_url('/public/css/glic-public-reponsive.css', __FILE__ ));
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('glic-js-autocomplete', plugins_url( '/public/js/search-autocomplete.js', __FILE__ ), array( 'jquery' ), '1.0.0', true);
     
     //CALL ONLY IN GLICRX RESULT PAGE
     if (is_page('glicrx-result')) { 
-        wp_enqueue_script( 'glic-pharmacy', plugins_url( '/public/js/result-page/pharmacy.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+        
         wp_enqueue_script( 'glic-result-page', plugins_url( '/public/js/result-page/result-page.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
+        wp_enqueue_script( 'glic-pharmacy', plugins_url( '/public/js/result-page/pharmacy.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
         
     }
 
@@ -65,7 +67,7 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-autocomplete.php' 
 require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-components.php' );
 
 //For Popup Drug with ajax query function
-require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-pharmacy.php' );
+//require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-pharmacy.php' );
 
 //For Popup Drug with ajax query function
 //require_once(plugin_dir_path( __FILE__ ) . 'public/inc/submited-form.php');

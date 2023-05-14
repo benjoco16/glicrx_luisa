@@ -9,6 +9,7 @@ function showSpinner() { $searchSpinner.show(); }
 // Function to hide spinner
 function hideSpinner() { $searchSpinner.hide(); }
 
+
 function getDrugComponents(DrugTerm) {
     showSpinner();
     jQuery.ajax({
@@ -22,28 +23,6 @@ function getDrugComponents(DrugTerm) {
         success: function(response) {
             hideSpinner();
             displayResults(response); //display-result.js
-        },
-        error: function(xhr, status, error) {
-            console.error(error);
-        }
-    });
-}
-
-//Pharmacy Ajax
-function getPharmaxy(NDC, Quant, ZipCode) {
-    jQuery.ajax({
-        url: base_url,
-        type: 'POST',
-        data: {
-            //Left is from form $_POST and Right is to pass to ajax
-            ndcode: NDC,
-            qty: Quant,
-            getzipcode: ZipCode
-        },
-        dataType: 'json',
-        success: function(response) {
-            hideSpinner();
-            displayPharmacy(response); //display-result.js
         },
         error: function(xhr, status, error) {
             console.error(error);

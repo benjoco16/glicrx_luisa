@@ -1,3 +1,4 @@
+<div id="drug-update">
 <?php if($_SERVER['REQUEST_METHOD'] == 'POST') { ?>
     <form action="#" method="POST" id="data-attriform">
         
@@ -33,3 +34,4 @@
         <button type="submit">Find Lowest Price</button>
     </form>
 <?php } ?> 
+</div>

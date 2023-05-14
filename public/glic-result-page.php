@@ -13,6 +13,7 @@
   //this input is for resultpage.js to call getDrugComponents function()
   echo '<input type="hidden" value="'.$callername.'" id="drug_result_input">';
 
+  /*
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
     echo $dtype;
     echo $formtype;
@@ -20,5 +21,9 @@
     echo $qtytype;
     echo $ziptype;
   }
-  include('resultpage/glic-update-drug.php');
+  */
+  echo '<div id="glicupdatehldr">';
+    include('resultpage/glic-update-drug.php');
+    include('resultpage/glic-pharmacy.php');
+  echo '</div>';
 ?>
