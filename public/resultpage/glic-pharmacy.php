@@ -44,6 +44,7 @@
 ?>
 
 <div id="pharmacy_hldr">
+
     <ul>
         <?php
             $response = json_decode($response, true);

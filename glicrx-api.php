@@ -29,7 +29,7 @@ add_shortcode( 'GlicResultPage', 'glicResultPage' );
 function Glic_Assets() {
     //Public Assets
     wp_enqueue_style('glic-style', plugins_url('/public/css/glic-public.css', __FILE__ ));
-    wp_enqueue_style('glic-public-responsive', plugins_url('/public/css/glic-public-reponsive.css', __FILE__ ));
+    wp_enqueue_style('glic-public-responsive', plugins_url('/public/css/glic-public-responsive.css', __FILE__ ));
 
     wp_enqueue_script('jquery');
     wp_enqueue_script('glic-js-autocomplete', plugins_url( '/public/js/search-autocomplete.js', __FILE__ ), array( 'jquery' ), '1.0.0', true);

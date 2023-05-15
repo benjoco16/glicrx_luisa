@@ -146,6 +146,7 @@ function displaySearchResults(response) {
                     $searchInput.val(druglist.DrugName);
                     $searchResults.empty();
                     $searchResults.hide();
+                    toggleModal();
 
                     getDrugComponents(druglist.DrugName);
                     //You can use this if you like to submit the form and create popup

@@ -1,5 +1,4 @@
 //create modal function
-/*
 var modal = document.querySelector(".glicrx-modal");
 var closeButton = document.querySelector(".glicrx-close-button");
 
@@ -12,22 +11,8 @@ function windowOnClick(event) {
     }
 }
 
-//Function to include everything inside Popup
-//Use
-function DrugInfo(data) {  
-    toggleModal(); 
-    console.log(data);
-
-     // Set the text to be sent to the popup
-     var textToSend = 'Hello, World!';
-
-} //Open Modal
-
 closeButton.addEventListener("click", toggleModal);
 window.addEventListener("click", windowOnClick);
-
-*/
-
 
 
 (function($) {
@@ -45,6 +30,7 @@ window.addEventListener("click", windowOnClick);
         
         // Function to handle search
         function HandleFormResult(event) {
+            //alert(2);
             var $target = $(event.target);
             //event.preventDefault();
             //var DrugTerm = $target.text();
@@ -56,6 +42,9 @@ window.addEventListener("click", windowOnClick);
             console.log(DrugTerm);
             showSpinner();
             $DrugResults.show();
+
+            // Show the modal
+            toggleModal();
             
             getDrugComponents(DrugTerm); //use this to call the ajaxfunc.js getdrug
         }
@@ -67,7 +56,7 @@ window.addEventListener("click", windowOnClick);
             alert (response.data);
 
             const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
-                cobsole.log("Dose:" + dose);
+                console.log("Dose:" + dose);
 
             if (response.length === 0) {
                 $FormType.append(`<option>No Data</option>`);
@@ -75,6 +64,9 @@ window.addEventListener("click", windowOnClick);
                 const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
                 console.log(dose);
             }
+            // Show the modal
+            toggleModal();
+            
             //getDrugComponents();
         }
       
@@ -92,4 +84,20 @@ window.addEventListener("click", windowOnClick);
         //Disable because of unused function
         //$('form#data-attriform').on('submit', HandleResultPage);
     });
+    
 })(jQuery);
+
+//ZIP VALIDATION
+function validateZipCode(zip) {
+    // Regular expression for US zip codes
+    var pattern = /^[0-9]{5}(?:-[0-9]{4})?$/;
+  
+    // Check if the zip code matches the pattern
+    if (pattern.test(zip)) {
+      // Valid zip code
+      return true;
+    } else {
+      // Invalid zip code
+      return false;
+    }
+  }
