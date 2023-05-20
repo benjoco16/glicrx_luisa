@@ -28,8 +28,6 @@ window.addEventListener("click", windowOnClick);
 
 */
 
-
-
 (function($) {
     $(document).ready(function() {
       // Define variables
@@ -40,7 +38,6 @@ window.addEventListener("click", windowOnClick);
         var $searchSpinner = $('#search-glic-spinner');
         var base_url = baseUrl + "/wp-admin/admin-ajax.php";
 
-        
 
         function getDrugComponents(DrugTerm) {
             $.ajax({
@@ -164,8 +161,6 @@ window.addEventListener("click", windowOnClick);
 
             const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
                 cobsole.log("Dose:" + dose);
-
-                
 
             if (response.length === 0) {
                 $FormType.append(`<option>No Data</option>`);

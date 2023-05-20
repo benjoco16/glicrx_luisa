@@ -14,9 +14,17 @@ function displayResults(response) {
     //Clear All Form Fields
     DrugResults.add(DrugType).add(DrugFormType).add(DrugDosage).add(DrugDisplayQuantity).add(DrugNdc).empty();
 
-    if (response.length === 0 && response.data.length == 1) {
+    console.log(response.data[0].data.length);
+
+    if (response.length === 0 || response.data[0].data.length === 0) {
         DrugResults.append('<p>No results found</p>');
+        //console.log("Replace the form with text!");
+        jQuery('#glicrx-drug-results').html('<p class="noglicdata">No results found</div>');;
+        jQuery('form#data-attriform').css('display', 'none');
+        //data-attriform
     } else {
+        jQuery('p.noglicdata').remove();
+        jQuery('form#data-attriform').css('display', 'block');
         //console.log("response text is here");
         //console.log(response);
 
@@ -44,7 +52,7 @@ function displayResults(response) {
 
         if (!brand_var) {   
             //If empty
-            console.log("Need to display : No details available for this drug.");
+            console.log("Need to display : No details available for this drug Name.");
         } else { 
             //FORM Type
             brand_var.forEach(sub_brand => {
@@ -86,7 +94,7 @@ function displayResults(response) {
         
         //Condition for Brand Name
         if (!drug_sub_brand_name) {   //If empty
-            console.log("Need to display : No details available for this drug.");
+            console.log("Need to display : No details available for this Sub drug Name (BRAND).");
         } else { 
             drug_sub_brand_name.forEach(sub_brand => {
                 DrugType.append(`<option value="${sub_brand.sub_drug_name}">${sub_brand.sub_drug_name} (Brand Drug)</option>`);  
@@ -95,7 +103,7 @@ function displayResults(response) {
 
         //Condition for Generic Name
         if (!drug_sub_generic_name) { //If empty
-            console.log("Need to display : No details available for this drug.");
+            console.log("Need to display : No details available for this Sub drug Name (GENERIC).");
         } else { 
             drug_sub_generic_name.forEach(sub_generic => {
                 DrugType.append(`<option value="${sub_generic.sub_drug_name}">${sub_generic.sub_drug_name} (Generic Drug)</option>`);     

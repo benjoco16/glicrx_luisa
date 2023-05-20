@@ -48,7 +48,7 @@ function AutoComplete(searchTerm) {
             dataType: 'json',
             success: function(response) {
                 hideSpinner();
-                displaySearchResults(response);    
+                displaySearchResults(response); 
             },
             error: function(xhr, status, error) {
                 console.error(error);

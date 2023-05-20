@@ -49,26 +49,20 @@ window.addEventListener("click", windowOnClick);
             getDrugComponents(DrugTerm); //use this to call the ajaxfunc.js getdrug
         }
         
+        
          // Function to handle Drug Type
         function handleDrugType(response) { 
-            var dttype = $('#DrugType').val();
-            var $FormType =  $('#FormType').val();
-            alert (response.data);
+            
+            var dttype = $('#DrugType').val(); //Use this to pass 
+            
+            alert(dttype);
 
-            const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
-                console.log("Dose:" + dose);
-
-            if (response.length === 0) {
-                $FormType.append(`<option>No Data</option>`);
-            } else { 
-                const dose = response.data.flatMap(druglist => druglist.data.map(drname => drname.dose)); 
-                console.log(dose);
-            }
             // Show the modal
             toggleModal();
             
             //getDrugComponents();
         }
+        
       
         // Bind event listeners
         //$DrugID.on('click', HandleFormResult);
@@ -78,8 +72,10 @@ window.addEventListener("click", windowOnClick);
         });
 
         $.each(DrugType, function() { 
-            $(this).on('change', handleDrugType); 
+            $(this).on('change', handleDrugType);
         });
+
+        $('#DrugType').on('change', handleDrugType);
 
         //Disable because of unused function
         //$('form#data-attriform').on('submit', HandleResultPage);

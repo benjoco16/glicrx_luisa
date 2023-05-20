@@ -86,7 +86,8 @@
                     'name' => $pharmacyName,
                     'price' => $price,
                     'lat' => $lat,
-                    'lng' => $lng
+                    'lng' => $lng,
+                    'logo' => $pharmacyLogo,
                 );
 
                 // Convert the markers array to a JSON string
@@ -103,6 +104,7 @@
 </div>
 
 <script>
+    /*
 // Initialize the map
 function initMap() {
   var mapOptions = {
@@ -121,5 +123,42 @@ function initMap() {
     });
   }
 }
+*/
+
+function initMap() {
+  var mapOptions = {
+    zoom: 12,
+    center: new google.maps.LatLng(<?php echo $pharmacies[0]['Lat'] ?>, <?php echo $pharmacies[0]['Long'] ?>)
+  };
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+  // Create markers for each location
+  var markers = <?php echo $markersJson ?>;
+  for (var i = 0; i < markers.length; i++) {
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(markers[i].lat, markers[i].lng),
+      map: map,
+      title: markers[i].name + ' ($' + markers[i].price + ')',
+      icon: {
+       // url: markers[i].logo, // Use the logo URL as the marker icon
+        //scaledSize: new google.maps.Size(60, 60) // Set the desired size of the marker icon
+      }
+    });
+
+    // Create info window content
+    var infoWindowContent = '<div><img src="' + markers[i].logo + '" alt="Logo" width="50" style="width: 50px;"><p><strong>' + markers[i].name + '</strong></p> <p>Price: $' + markers[i].price + '</p></div>';
+
+    // Create info window for the marker
+    var infoWindow = new google.maps.InfoWindow({
+      content: infoWindowContent
+    });
+
+    // Open the info window when the marker is created
+    infoWindow.open(map, marker);
+  }
+}
+
+
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDrACbxX-oKErwSmzV_t86FsKEx6VsSEOM&callback=initMap"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmqTiBXCCiIRC9IR0H7HrDT1XdFjEjEQk&callback=initMap"></script>
