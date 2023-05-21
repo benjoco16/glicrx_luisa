@@ -9,7 +9,7 @@ function showSpinner() { $searchSpinner.show(); }
 // Function to hide spinner
 function hideSpinner() { $searchSpinner.hide(); }
 
-
+/* GUMAGANA*/
 function getDrugComponents(DrugTerm) {
     showSpinner();
     jQuery.ajax({
@@ -56,3 +56,27 @@ function AutoComplete(searchTerm) {
         });
     }
 }
+
+// Update Form Type
+function ResultOfFormType(DrugTerm, brandType, doseType) {
+    showSpinner();
+    jQuery.ajax({
+      url: base_url,
+      type: 'POST',
+      data: {
+        action: 'drug_components', // call from drug-hook-components.php
+        DrugName: DrugTerm, // Send DATA to POST
+        brandType: brandType, // Add Branded
+        DoseType: doseType // Add the Sub Drug Name parameter
+      },
+      dataType: 'json',
+      success: function(response) {
+        hideSpinner();
+        //ResultOnChange(response, DrugTerm, doseType); // Pass the doseType parameter to ResultOnChange
+        UpdateFormResult(response, DrugTerm, brandType, doseType);
+      },
+      error: function(xhr, status, error) {
+        console.error(error);
+      }
+    });
+  }

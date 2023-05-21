@@ -38,12 +38,12 @@ function Glic_Assets() {
     if (is_page('glicrx-result')) { 
         
         wp_enqueue_script( 'glic-result-page', plugins_url( '/public/js/result-page/result-page.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-        wp_enqueue_script( 'glic-pharmacy', plugins_url( '/public/js/result-page/pharmacy.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );
-        
+        wp_enqueue_script( 'glic-pharmacy', plugins_url( '/public/js/result-page/pharmacy.js', __FILE__ ), array( 'jquery' ), '1.0.0', true );      
     }
 
     wp_enqueue_script('glic-js-modal', plugins_url( '/public/js/modal.js', __FILE__ ), array( 'jquery', ), '1.0.0', true);
     wp_enqueue_script('glic-displayresult', plugins_url( '/public/js/displayresult.js', __FILE__ ), array( 'jquery' ), '1.0.0', true);
+    wp_enqueue_script('glic-formtyperesult', plugins_url( '/public/js/form/drugtypefunc.js', __FILE__ ), array( 'jquery' ), '1.0.0', true); // use form onchange
     wp_enqueue_script('glic-ajaxfunc', plugins_url('/public/js/ajaxfunc.js', __FILE__), array( 'jquery' ), '1.0.0', true);
     
     //wp_localize_script('glic-js-modal', 'myAjax', array('ajaxurl' => admin_url('admin-ajax.php')));
@@ -66,8 +66,8 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-autocomplete.php' 
 //For Popup Drug with ajax query function
 require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-components.php' );
 
-//For Popup Drug with ajax query function
-//require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-pharmacy.php' );
+//For Popup Drug with ajax form
+//require_once( plugin_dir_path( __FILE__ ) . 'public/drug-hook-form-update.php' );
 
 //For Popup Drug with ajax query function
 //require_once(plugin_dir_path( __FILE__ ) . 'public/inc/submited-form.php');

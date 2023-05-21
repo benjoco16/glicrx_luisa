@@ -51,19 +51,22 @@ window.addEventListener("click", windowOnClick);
         
         
          // Function to handle Drug Type
-        function handleDrugType(response) { 
-            
-            var dttype = $('#DrugType').val(); //Use this to pass 
-            
-            alert(dttype);
+        function handleDrugType() {
+            var dttype = $("input#caller_name").val(); //Get Current complete name of drug
+            var cur_val = this.value; //Get Selected Click Sub Drugname
+            var selectedOption = $(this).find('option:selected');
 
-            // Show the modal
-            toggleModal();
-            
-            //getDrugComponents();
+
+            var genValue = selectedOption.data('brand');
+            //console.log(genValue);
+
+            alert (genValue);
+            alert (cur_val + dttype);
+
+            ResultOfFormType(dttype, genValue, cur_val);
+            //getDrugComponents(dttype, cur_val);
         }
         
-      
         // Bind event listeners
         //$DrugID.on('click', HandleFormResult);
 
