@@ -52,18 +52,20 @@ window.addEventListener("click", windowOnClick);
         
          // Function to handle Drug Type
         function handleDrugType() {
-            var dttype = $("input#caller_name").val(); //Get Current complete name of drug
-            var cur_val = this.value; //Get Selected Click Sub Drugname
+            var DrugTerm = $("input#caller_name").val(); //Get Current complete name of drug
+            var doseType = this.value; //Get Selected Click Sub Drugname
             var selectedOption = $(this).find('option:selected');
 
 
-            var genValue = selectedOption.data('brand');
+            var brandType = selectedOption.data('brand');
+            var ArrValue = selectedOption.data('array');
             //console.log(genValue);
 
-            alert (genValue);
-            alert (cur_val + dttype);
+            alert (brandType);
 
-            ResultOfFormType(dttype, genValue, cur_val);
+            console.log(doseType + DrugTerm + ArrValue);
+
+            ResultOfFormType(DrugTerm, ArrValue, brandType, doseType);
             //getDrugComponents(dttype, cur_val);
         }
         
@@ -78,6 +80,8 @@ window.addEventListener("click", windowOnClick);
             $(this).on('change', handleDrugType);
         });
 
+        //Form Modal Onchange
+        $('#DrugType').on('change', handleDrugType);
         $('#DrugType').on('change', handleDrugType);
 
         //Disable because of unused function

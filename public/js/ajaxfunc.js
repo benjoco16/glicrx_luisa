@@ -58,7 +58,7 @@ function AutoComplete(searchTerm) {
 }
 
 // Update Form Type
-function ResultOfFormType(DrugTerm, brandType, doseType) {
+function ResultOfFormType(DrugTerm, arrayNum, brandType, doseType) {
     showSpinner();
     jQuery.ajax({
       url: base_url,
@@ -66,6 +66,7 @@ function ResultOfFormType(DrugTerm, brandType, doseType) {
       data: {
         action: 'drug_components', // call from drug-hook-components.php
         DrugName: DrugTerm, // Send DATA to POST
+        ArrayNum: arrayNum, //SEND ARRAY NUMBER
         brandType: brandType, // Add Branded
         DoseType: doseType // Add the Sub Drug Name parameter
       },
@@ -73,7 +74,7 @@ function ResultOfFormType(DrugTerm, brandType, doseType) {
       success: function(response) {
         hideSpinner();
         //ResultOnChange(response, DrugTerm, doseType); // Pass the doseType parameter to ResultOnChange
-        UpdateFormResult(response, DrugTerm, brandType, doseType);
+        UpdateFormResult(response, DrugTerm, arrayNum, brandType, doseType);
       },
       error: function(xhr, status, error) {
         console.error(error);
