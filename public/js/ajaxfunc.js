@@ -75,6 +75,7 @@ function ResultOfFormType(DrugTerm, arrayNum, brandType, doseType) {
         hideSpinner();
         //ResultOnChange(response, DrugTerm, doseType); // Pass the doseType parameter to ResultOnChange
         UpdateFormResult(response, DrugTerm, arrayNum, brandType, doseType);
+        FormTypeOnchange(response, DrugTerm, arrayNum, brandType, doseType);
       },
       error: function(xhr, status, error) {
         console.error(error);

@@ -15,11 +15,11 @@
 
             <form action="<?php echo get_home_url(); ?>/glicrx-result/" method="POST" id="data-attriform">
                 <!-- input fields to pass in the next result page -->
-                <div class="form-hidden">
+                <div class="form-hiddenss">
                     <label for="Caller Name">Caller Name</label>
                     <input type="text" id="caller_name" name="caller_name" placeholder="Caller Name">
                 </div>
-                <div class="form-hidden">
+                <div class="form-hiddenss">
                     <label for="NDCODE">NDCODE</label>
                     <input type="text" id="ndcode" name="ndcode" placeholder="ndcode">
                 </div>

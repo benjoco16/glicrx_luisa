@@ -1,9 +1,17 @@
+/** 
+ * Response - Complete Data
+ * DrugTerm - Caller name
+ * ArrValue - Number value of array
+ * brandType - Generic or Brand
+ * doseType - Get the Sub Drug Name (Found inside the Generic or Brand Name)
+ * **/
+var responseApi, DrugTermApi, ArrValueApi, brandTypeApi, doseTypeApi;
+
 // Function to display search results
 //Global Variable to use in each fucntion
 DrugFormType = jQuery('#FormType'),
 DrugDosage= jQuery('#Dosage'),
 DrugDisplayQuantity= jQuery('#qty');
-
 
 //function displayResults(response, DrugTerm, doseType) {
 // Function to display search results
@@ -13,7 +21,6 @@ function displayResults(response) {
 
     //Get ID of each select option
     var DrugType = jQuery('#DrugType'),
-    
     DrugNdc= jQuery('#ndcode'),
     DrugResults = jQuery();
 
@@ -25,7 +32,7 @@ function displayResults(response) {
     if (response.length === 0 || response.data[0].data.length === 0) {
         DrugResults.append('<p>No results found</p>');
         //console.log("Replace the form with text!");
-        jQuery('#glicrx-drug-results').html('<p class="noglicdata">No results found</div>');;
+        jQuery('#glicrx-drug-results').html('<p class="noglicdata">No results found</div>');
         jQuery('form#data-attriform').css('display', 'none');
         //data-attriform
     } else {
@@ -39,15 +46,13 @@ function displayResults(response) {
         
         brandres = brandress.map(str => str.toLowerCase());
         const drug_generic_name = String(brandres[0]); 
+
+        console.log(drug_generic_name); //use drug_generic_name for dynamic
         brand_var = null;
 
-        if (drug_generic_name === 'generic') {
-            var brand_vars = response.data.flatMap(druglist => druglist.data.map(drname => drname.generic));
-            var brand_var = brand_vars[0];
-        } else {
-            var brand_vars = response.data.flatMap(druglist => druglist.data.map(drname => drname.brand));
-            var brand_var = brand_vars[0];
-        }
+        //Set Brand_vars as dynamic
+        var brand_vars = response.data.flatMap(druglist => druglist.data.map(drname => drname[drug_generic_name]));
+        var brand_var = brand_vars[0];
 
         //Try to use this for cleaner Codes because you have huge arrays
         //Get all default and set it in Dropdown
@@ -60,15 +65,21 @@ function displayResults(response) {
             //If empty
             console.log("Need to display : No details available for this drug Name.");
         } else { 
+
+            
+            /*
             //FORM Type
             brand_var.forEach(sub_brand => {
                 const uniqueTypes = new Set(sub_brand.types.map(type => type.dose));
+                console.log(uniqueTypes);
                 uniqueTypes.forEach(type => {
                     if(!DrugFormType.find(`option[value="${type}"]`).length) {
                         DrugFormType.append(`<option value="${type}">${type}</option>`);
                     }
                 });
             });
+            */
+
             //Dosage Strength
             brand_var.forEach(sub_dos => {
                 const uniquecomblist = new Set(sub_dos.comblist.map(comblist => comblist.strengthname));
@@ -112,7 +123,7 @@ function displayResults(response) {
                 brandArr++;
             });
         }
-
+        
         //Condition for Generic Name
         if (!drug_sub_generic_name) { //If empty
             console.log("Need to display : No details available for this Sub drug Name (GENERIC).");
@@ -120,25 +131,60 @@ function displayResults(response) {
             var GenArr = 0;
             drug_sub_generic_name.forEach(sub_generic => {
                 DrugType.append(`<option data-array="${GenArr}" data-brand="generic" value="${sub_generic.sub_drug_name}">${sub_generic.sub_drug_name} (Generic Drug)</option>`);     
-                //console.log(sub_brand.sub_drug_name);
-                //console.log(sub_generic.types);
-                //console.log(sub_generic.comblist);
-                //console.log(sub_generic.prerset);
+                //console.log(sub_brand.sub_drug_name);//console.log(sub_generic.types); //console.log(sub_generic.comblist); //console.log(sub_generic.prerset);
                 GenArr++;
             });
         }
         
         //Set Active Value
-        DrugType.val(drName);
+        DrugType.val(drName).find('option:selected').addClass("active-selective-drug");
         DrugFormType.val(dose);
         DrugDosage.val(strength);
         DrugNdc.val(ndcode);
-        
 
         var $result = jQuery('<option value="' + drName + '">Drug Name:' + drName + '</option>');
         DrugResults.append($result);
+
+        //New Form Type that will replace the static one FORM Type 
+        DrugFormType.empty(); //CLEAR DATA OF FORM TYPE
+        var active_drugarr = jQuery('.active-selective-drug').data('array');
+        var new_FormData = brand_var[active_drugarr];
+        
+        
+        var newFormArr = 0;
+        new_FormData.types.forEach(type => {
+            if (type.dose) {
+              //console.log(type.dose); // Or perform any other operations
+                if(!DrugFormType.find(`option[value="${type.dose}"]`).length) {
+                    DrugFormType.append(`<option data-FormArr="${newFormArr}" value="${type.dose}">${type.dose}</option>`);
+                }
+            }
+            newFormArr++;
+        });
+
+        //Default Form Style
+        var ActiveFormArr = DrugFormType.find('option:selected');
+        var dataFormArr = ActiveFormArr.data('formarr');
+        var ActiveNewForm = new_FormData.types[dataFormArr].strength;
+
+        console.log(ActiveNewForm);
+
+        DrugDosage.empty();
+
+        var FstDosageArr = 0;
+        ActiveNewForm.forEach(item => {
+            var strength = item.Strength;
+            DrugDosage.append(`<option data-fDosageArr="${FstDosageArr}" value="${strength}">${strength}</option>`);
+            FstDosageArr++;
+        });
+
+
+        //Default Quantity
+        
+
     }
 }
+
 
 // Function to display search results
 function displaySearchResults(response) {
@@ -183,18 +229,17 @@ function displaySearchResults(response) {
 }
 
 
-/** 
- * Response - Complete Data
- * DrugTerm - Caller name
- * ArrValue - Number value of array
- * brandType - Generic or Brand
- * doseType - Get the Sub Drug Name (Found inside the Generic or Brand Name)
- * **/
 function UpdateFormResult(response, DrugTerm, ArrValue, brandType, doseType) {
   
-  console.log("Loaded from UpdateFormResult function")
+    console.log("Loaded from UpdateFormResult function")
     console.log(DrugTerm + ',' + ArrValue + ',' + brandType + ',' + doseType);
-  console.log(response);
+    console.log(response);
+
+    responseApi = response;
+    DrugTermApi = DrugTerm;
+    ArrValueApi = ArrValue;
+    brandTypeApi = brandType;
+    doseTypeApi = doseType;
 
   //var DataDir = response.data[0].data[0];
 
@@ -202,7 +247,7 @@ function UpdateFormResult(response, DrugTerm, ArrValue, brandType, doseType) {
   //brandress = DataDir.brand_name_code;
 
   //Kelangan dynamic yung huling brand at subdrugname
-  console.log(response.data[0].data[0][brandType][ArrValue].types);
+  //console.log(response.data[0].data[0][brandType][ArrValue].types); //DITO GUMAGANA PAG AUTOCOMLETE
   
     const DrugArrType = response.data[0].data[0][brandType][ArrValue].types;
     
@@ -213,8 +258,10 @@ function UpdateFormResult(response, DrugTerm, ArrValue, brandType, doseType) {
     DrugDisplayQuantity.empty(); //Clear Quantity TYpe'
 
     //Append Dose Data
+    var newdoseArr = 0;
     DrugArrType.forEach(function(drugType) {
-        DrugFormType.append(`<option value="${drugType.dose}">${drugType.dose}</option>`);
+        DrugFormType.append(`<option data-newdoseArr="${newdoseArr}"value="${drugType.dose}">${drugType.dose}</option>`);
+        newdoseArr++
     });
 
     //Default Parameter after selecting Drug Type
@@ -228,9 +275,6 @@ function UpdateFormResult(response, DrugTerm, ArrValue, brandType, doseType) {
     DefaultDrugArrqty.forEach(function(qtyType) {
         DrugDisplayQuantity.append(`<option value="${qtyType.Quantity}">${qtyType.DisplayQuantity}</option>`);
     });
-
-
-    
 
     //USE THIS TO DETECT THE ARRAY NUMBER this code is for test puspose
     /*
@@ -261,5 +305,59 @@ function UpdateFormResult(response, DrugTerm, ArrValue, brandType, doseType) {
         console.log("Target sub_drug_name not found.");
     }
     */
+
+}
+
+jQuery('#FormType').on('change', FormTypeOnchange);
+var new_Str_Val;
+//Popup Form Type Onchange
+function FormTypeOnchange() {
+    
+    //UpdateFormResult(responseApi, DrugTermApi, ArrValueApi, brandTypeApi, doseTypeApi);
+    
+    // Get the selected option
+    var selectedOption = jQuery(this).find('option:selected');
+    
+    // Get the value of the data-newdosearr attribute
+    var newDataDoseArr = selectedOption.data('newdosearr');
+
+    new_Str_Val = responseApi.data[0].data[0][brandTypeApi][0].types[newDataDoseArr].strength;
+
+    DrugDosage.empty(); //Clear Quantity TYpe'
+
+    var newdosageArr = 0;
+    new_Str_Val.forEach(function(dosageType) {
+        DrugDosage.append(`<option data-osageArr="${newdosageArr}" value="${dosageType.Strength}">${dosageType.Strength}</option>`);
+        newdosageArr++;
+    });
+
+}
+
+DrugDosage.on('change', DosageOnchange);
+var NewQtyData; 
+function DosageOnchange() { 
+    // Get the selected option
+    var selectedDosage = jQuery(this).find('option:selected');
+    // Get the value of the data-osagearr attribute
+    var DataDosageArr = selectedDosage.data('osagearr');
+ 
+    
+    NewQtyData = new_Str_Val[DataDosageArr].Quantity; //Get the data on prev 
+
+    DrugDisplayQuantity.empty();
+   //Default Parameter after selecting Drug Type
+   NewQtyData.forEach(function(qtyType) {
+       DrugDisplayQuantity.append(`<option data-ndcode="${qtyType.NDCCode}" value="${qtyType.Quantity}">${qtyType.DisplayQuantity}</option>`);
+   });
+    
+}
+
+DrugDisplayQuantity.on('change', QtyOnchange);
+function QtyOnchange() {
+    var selectedqty = jQuery(this).find('option:selected');
+    var DataQTYndc = selectedqty.data('ndcode');
+
+    console.log(NewQtyData);
+    console.log(DataQTYndc);
 
 }

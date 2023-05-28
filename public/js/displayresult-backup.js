@@ -111,7 +111,6 @@ function displayResults(response) {
                 //console.log(sub_generic.types);
                 //console.log(sub_generic.comblist);
                 //console.log(sub_generic.prerset);
-                
             });
         }
         

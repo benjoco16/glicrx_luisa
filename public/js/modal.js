@@ -55,20 +55,13 @@ window.addEventListener("click", windowOnClick);
             var DrugTerm = $("input#caller_name").val(); //Get Current complete name of drug
             var doseType = this.value; //Get Selected Click Sub Drugname
             var selectedOption = $(this).find('option:selected');
-
-
             var brandType = selectedOption.data('brand');
             var ArrValue = selectedOption.data('array');
             //console.log(genValue);
-
-            alert (brandType);
-
             console.log(doseType + DrugTerm + ArrValue);
-
             ResultOfFormType(DrugTerm, ArrValue, brandType, doseType);
-            //getDrugComponents(dttype, cur_val);
         }
-        
+
         // Bind event listeners
         //$DrugID.on('click', HandleFormResult);
 
@@ -81,7 +74,6 @@ window.addEventListener("click", windowOnClick);
         });
 
         //Form Modal Onchange
-        $('#DrugType').on('change', handleDrugType);
         $('#DrugType').on('change', handleDrugType);
 
         //Disable because of unused function
