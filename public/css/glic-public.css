@@ -114,9 +114,13 @@
   display: flex;
   padding-bottom: 10px;
   margin-bottom: 0;
+  background-color: #FFF;
+  padding: 10px 15px;
+  border-radius: 100px;
+  border: 2px solid var(--form--border-color);
 }
 #search-form input {
-  border-radius: 30px;
+  border-radius: 0;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
     width: 100%;
     background: 0 0;
@@ -126,6 +130,7 @@
     background-color: #fff;
     font-size: 20px;
     letter-spacing: -.05px;
+    border: none;
 }
 #search-form button {
   border-radius: 30px;

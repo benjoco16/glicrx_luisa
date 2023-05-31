@@ -167,20 +167,33 @@ function displayResults(response) {
         var dataFormArr = ActiveFormArr.data('formarr');
         var ActiveNewForm = new_FormData.types[dataFormArr].strength;
 
-        console.log(ActiveNewForm);
+        
 
         DrugDosage.empty();
 
         var FstDosageArr = 0;
         ActiveNewForm.forEach(item => {
             var strength = item.Strength;
-            DrugDosage.append(`<option data-fDosageArr="${FstDosageArr}" value="${strength}">${strength}</option>`);
+            DrugDosage.append(`<option data-fdosagearr="${FstDosageArr}" value="${strength}">${strength}</option>`);
             FstDosageArr++;
         });
 
 
         //Default Quantity
-        
+        var ActiveQuantArr = DrugDosage.find('option:selected');
+        var dataQtymArr = ActiveQuantArr.data('fdosagearr');
+
+        console.log(new_FormData.types[dataFormArr].strength);
+
+        var ActiveNewQuanty = new_FormData.types[dataFormArr].strength[dataQtymArr].Quantity;
+       console.log(ActiveNewQuanty);
+
+
+        DrugDisplayQuantity.empty();
+        //Default Parameter after selecting Drug Type
+        ActiveNewQuanty.forEach(function(qtyType) {
+            DrugDisplayQuantity.append(`<option data-ndcode="${qtyType.NDCCode}" value="${qtyType.Quantity}">${qtyType.DisplayQuantity}</option>`);
+        });
 
     }
 }
